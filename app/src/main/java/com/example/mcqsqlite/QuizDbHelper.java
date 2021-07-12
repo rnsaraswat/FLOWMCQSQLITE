@@ -121,11 +121,11 @@ public class QuizDbHelper extends SQLiteOpenHelper {
 //        insertQuestion(q13);
 //        Question q14 = new Question("General Manger is responsible for", "Railway Board", "Railway Ministry", "Both railway Board and Railway Ministry", "None of these", 1, Question.DIFFICULTY_EASY, Category.RAILWAY);
 //        insertQuestion(q14);
-//        Question q15 = new Question("The headquarters of South-Central Railways is situated at", "Mumbai (CST) ", "Chennai", "Secundrabad", "Mumbai (Central) ", 3, Question.DIFFICULTY_EASY, Category.RAILWAY);
+//        Question q15 = new Question("The headquarters of South-Central Railways is situated at", "Mumbai (CST) ", "Chennai", "Secundrabad",  3, Question.DIFFICULTY_EASY, Category.PROGRAMMING);
 //        insertQuestion(q15);
-//        Question q16 = new Question("Programming, Easy: A is correct", "A", "B", "C", "D", 1,
-//                Question.DIFFICULTY_EASY, Category.PROGRAMMING);
-//        insertQuestion(q16);
+        Question q16 = new Question("Programming, Easy: A is correct", "A", "B", "C", 1,
+                Question.DIFFICULTY_EASY, Category.PROGRAMMING);
+        insertQuestion(q16);
         Question q17 = new Question("Geography, Medium: B is correct",
 //                "A", "B", "C", "d", 2,
                 "A", "B", "C", 2,
@@ -137,19 +137,33 @@ public class QuizDbHelper extends SQLiteOpenHelper {
                 Question.DIFFICULTY_HARD, Category.MATH);
         insertQuestion(q18);
         Question q19 = new Question("Math, Easy: A is correct",
-//                "A", "B", "C", "D", 1,
                 "A", "B", "C", 1,
                 Question.DIFFICULTY_EASY, Category.MATH);
         insertQuestion(q19);
         Question q20 = new Question("Non existing, Easy: A is correct",
-//                "A", "B", "C", "D", 1,
                 "A", "B", "C", 1,
-                Question.DIFFICULTY_EASY, 4);
+                Question.DIFFICULTY_EASY, 3);
         insertQuestion(q20);
         Question q21 = new Question("Non existing, Medium: B is correct",
                 "A", "B", "C", 2,
                 Question.DIFFICULTY_MEDIUM, 1);
         insertQuestion(q21);
+        Question q1 = new Question("Math, Easy: 3 + 4  A is correct",
+                "A 7", "B 6 ", "C 8", 1,
+                Question.DIFFICULTY_EASY, Category.MATH);
+        insertQuestion(q1);
+        Question q2 = new Question("Math, Easy:  5 + 6  A is correct",
+                "A 10", "B 11", "C 12", 2,
+                Question.DIFFICULTY_EASY, Category.MATH);
+        insertQuestion(q2);
+        Question q3 = new Question("Math, Easy:  4 + 5  A is correct",
+                "A 8", "B 7", "C 9", 3,
+                Question.DIFFICULTY_EASY, Category.MATH);
+        insertQuestion(q3);
+        Question q4 = new Question("Math, Easy:  6 + 7  A is correct",
+                "A 13", "B 12 ", "C 14", 1,
+                Question.DIFFICULTY_EASY, Category.MATH);
+        insertQuestion(q4);
     }
     public void addQuestion(Question question) {
         db = getWritableDatabase();
