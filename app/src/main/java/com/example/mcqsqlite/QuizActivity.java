@@ -112,6 +112,7 @@ public class QuizActivity extends AppCompatActivity {
             }
         });
     }
+
     private void showNextQuestion() {
         rb1.setTextColor(textColorDefaultRb);
         rb2.setTextColor(textColorDefaultRb);
@@ -135,6 +136,7 @@ public class QuizActivity extends AppCompatActivity {
             finishQuiz();
         }
     }
+    
     private void startCountDown() {
         countDownTimer = new CountDownTimer(timeLeftInMillis, 1000) {
             @Override

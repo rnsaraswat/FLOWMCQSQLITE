@@ -175,6 +175,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
             insertQuestion(question);
         }
     }
+
     private void insertQuestion(Question question) {
         ContentValues cv = new ContentValues();
         cv.put(QuestionsTable.COLUMN_QUESTION, question.getQuestion());
@@ -187,6 +188,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         cv.put(QuestionsTable.COLUMN_CATEGORY_ID, question.getCategoryID());
         db.insert(QuestionsTable.TABLE_NAME, null, cv);
     }
+
     public List<Category> getAllCategories() {
         List<Category> categoryList = new ArrayList<>();
         db = getReadableDatabase();
@@ -202,6 +204,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         c.close();
         return categoryList;
     }
+
     public ArrayList<Question> getAllQuestions() {
         ArrayList<Question> questionList = new ArrayList<>();
         db = getReadableDatabase();
@@ -224,6 +227,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         c.close();
         return questionList;
     }
+
     public ArrayList<Question> getQuestions(int categoryID, String difficulty) {
         ArrayList<Question> questionList = new ArrayList<>();
         db = getReadableDatabase();

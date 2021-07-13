@@ -19,5 +19,6 @@ public class QuizContract {
         public static final String COLUMN_ANSWER_NR = "answer_nr";
         public static final String COLUMN_DIFFICULTY = "difficulty";
         public static final String COLUMN_CATEGORY_ID = "category_id";
+
     }
 }
