@@ -2,8 +2,10 @@ package com.example.mcqsqlite;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 
 public class Question implements Parcelable {
+
     public static final String DIFFICULTY_EASY = "Easy";
     public static final String DIFFICULTY_MEDIUM = "Medium";
     public static final String DIFFICULTY_HARD = "Hard";
@@ -12,47 +14,59 @@ public class Question implements Parcelable {
     private String option1;
     private String option2;
     private String option3;
-//    private String option4;
+    private String option4;
     private int answerNr;
     private String difficulty;
     private int categoryID;
     public Question() {
     }
 
-    public Question(String question, String option1, String option2, String option3,
+    public Question(String question, String option1, String option2, String option3, String option4,
                     int answerNr, String difficulty, int categoryID) {
+        Log.d("Ravi", "Question Question Start 46");
         this.question = question;
         this.option1 = option1;
         this.option2 = option2;
         this.option3 = option3;
-//        this.option3 = option4;
+        this.option4 = option4;
         this.answerNr = answerNr;
         this.difficulty = difficulty;
         this.categoryID = categoryID;
+        Log.d("Ravi", "Question Question  Start 106 " + question);
+        Log.d("Ravi", "Question Question  Start 106 " + option3);
+        Log.d("Ravi", "Question Question  Start 106 " + option4);
     }
 
     protected Question(Parcel in) {
+        Log.d("Ravi", "Question Question parcel Start 47");
         id = in.readInt();
         question = in.readString();
         option1 = in.readString();
         option2 = in.readString();
         option3 = in.readString();
-//        option4 = in.readString();
+        option4 = in.readString();
         answerNr = in.readInt();
         difficulty = in.readString();
         categoryID = in.readInt();
+        Log.d("Ravi", "Question Question parcel Start 104 " + question);
+        Log.d("Ravi", "Question Question parcel Start 104 " + option3);
+        Log.d("Ravi", "Question Question parcel Start 104 " + option4);
     }
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        Log.d("Ravi", "Question writeToParcel Start 48");
         dest.writeInt(id);
         dest.writeString(question);
         dest.writeString(option1);
         dest.writeString(option2);
         dest.writeString(option3);
-//        dest.writeString(option4);
+        dest.writeString(option4);
         dest.writeInt(answerNr);
         dest.writeString(difficulty);
         dest.writeInt(categoryID);
+        Log.d("Ravi", "Question Question parcel Start 105 " + question);
+        Log.d("Ravi", "Question Question parcel Start 105 " + option3);
+        Log.d("Ravi", "Question Question parcel Start 105 " + option4);
     }
     @Override
     public int describeContents() {
@@ -75,6 +89,7 @@ public class Question implements Parcelable {
         this.id = id;
     }
     public String getQuestion() {
+        Log.d("Ravi", "Question getQuestion Start 100 " + question);
         return question;
     }
     public void setQuestion(String question) {
@@ -93,17 +108,17 @@ public class Question implements Parcelable {
         this.option2 = option2;
     }
     public String getOption3() {
+        Log.d("Ravi", "Question getQuestion Start 101 " + option3);
         return option3;
     }
     public void setOption3(String option3) {
+        Log.d("Ravi", "Question getQuestion Start 102 " + option3);
         this.option3 = option3;
     }
-//    public String getOption4() {
-//        return option4;
-//    }
-//    public void setOption4(String option4) {
-//        this.option4 = option4;
-//    }
+    public String getOption4() {
+        Log.d("Ravi", "Question getQuestion Start 103 " + option4);
+        return option4;}
+    public void setOption4(String option4) {this.option4 = option4;}
     public int getAnswerNr() {
         return answerNr;
     }

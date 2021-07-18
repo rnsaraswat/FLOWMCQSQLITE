@@ -5,16 +5,26 @@ import android.content.SharedPreferences;
 import androidx.appcompat.app.AppCompatActivity;
 //import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import java.util.List;
 
+/*
+        APP - MCQ SQLite
+        Path D:\AndroidStudioProjects\APP\Quiz App\Multiple Choice Quiz\IR Multiple choice quiz\FlowMCQSQLite
+        Github Repository - FLOWMCQSQLITE
+
+        This is SQL database example
+        This is Multiple choice question (4 option) type data base
+        Display Quiz, High Score, Category, difficulty in mani screen
+        This is Display one question in Quiz activity
+
+*/
 public class MainActivity extends AppCompatActivity {
 
     private static final int REQUEST_CODE_QUIZ = 1;
@@ -33,30 +43,39 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Log.d("Ravi", "MainActivity onCreate Start 1");
         textViewHighscore = findViewById(R.id.text_view_highscore);
         spinnerCategory = findViewById(R.id.spinner_category);
         spinnerDifficulty = findViewById(R.id.spinner_difficulty);
         loadCategories();
         loadDifficultyLevels();
         loadHighscore();
+        Log.d("Ravi", "MainActivity onCreate Start 2");
         Button buttonStartQuiz = findViewById(R.id.button_start_quiz);
+        Log.d("Ravi", "MainActivity onCreate Start 3");
         buttonStartQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("Ravi", "MainActivity onCreate Start 4");
                 startQuiz();
+                Log.d("Ravi", "MainActivity onCreate Start 5");
             }
         });
     }
     private void startQuiz() {
+        Log.d("Ravi", "MainActivity startQuiz Start 6");
         Category selectedCategory = (Category) spinnerCategory.getSelectedItem();
         int categoryID = selectedCategory.getId();
         String categoryName = selectedCategory.getName();
         String difficulty = spinnerDifficulty.getSelectedItem().toString();
+        Log.d("Ravi", "MainActivity startQuiz Start 7");
         Intent intent = new Intent(MainActivity.this, QuizActivity.class);
         intent.putExtra(EXTRA_CATEGORY_ID, categoryID);
         intent.putExtra(EXTRA_CATEGORY_NAME, categoryName);
         intent.putExtra(EXTRA_DIFFICULTY, difficulty);
+        Log.d("Ravi", "MainActivity startQuiz Start 8");
         startActivityForResult(intent, REQUEST_CODE_QUIZ);
+        Log.d("Ravi", "MainActivity startQuiz Start 9");
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
